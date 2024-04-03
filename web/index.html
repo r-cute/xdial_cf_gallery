@@ -1,0 +1,28 @@
+<!DOCTYPE html><html><head>
+	<title>XDial clock face gallery</title>
+	<meta charset="UTF-8"><meta name='viewport' content='width=device-width, initial-scale=1'/>
+</head><script src="../util.js"></script>
+<style>
+	*{font-size:1em;margin:.25em}
+	h1{font-size:1.25em;text-align:center;margin-top: 1em;}
+	div:has(h2){border-top:1px solid #ccc;
+		h2{
+			font-weight:normal;display: flex;justify-content: space-between;
+			button{font-size: 0.9em;}
+		}
+		div{overflow: auto;white-space: nowrap;
+			img{width:64px;border-radius:50%;}
+		}
+	}
+</style><body></body><script>
+	multi_lang();
+	ver="1.0.0";
+	range=x=>Array(x).keys();
+	(
+		ml('h1')(['XDial clock face gallery','XDial 自选表盘'])
+		+j2h({'<>':'div','[]':split,html:[{'<>':'h2',html:[ml('span'),x=>ml('button',{onclick:`navigator.clipboard.writeText("https://gitee.com/xdial/xdial_cf_gallery/releases/download/${ver}/${x[2]}.bin");alert(selang("Copied/已复制"))`})(['copy URL','复制 URL'])]},{'<>':'div',html:x=>[...range(parseInt(x[3]))].map(i=>`<img src="assets/${x[2]}/${i}.png" />`).join('')}]}).batch([
+			'Pokemon/宝可梦/pokemon/6',
+			'iKun/iKun/ikun/6',
+		])
+	).dom();
+</script></html>
