@@ -1,5 +1,5 @@
 <!DOCTYPE html><html><head>
-	<title>XDial clock face gallery</title>
+	<title>XDial</title>
 	<meta charset="UTF-8"><meta name='viewport' content='width=device-width, initial-scale=1'/>
 </head><script src="../util.js"></script>
 <style>
@@ -19,10 +19,10 @@
 	ver="1.0.0";
 	range=x=>Array(x).keys();
 	(
-		ml('h1')(['XDial clock face gallery','XDial 自选表盘'])
-		+j2h({'<>':'div','[]':split,html:[{'<>':'h2',html:[ml('span'),x=>ml('button',{onclick:`navigator.clipboard.writeText("https://gitee.com/xdial/xdial_cf_gallery/releases/download/${ver}/${x[2]}.bin");alert(selang("Copied/已复制"))`})(['copy URL','复制 URL'])]},{'<>':'div',html:x=>[...range(parseInt(x[3]))].map(i=>`<img src="assets/${x[2]}/${i}.png" />`).join('')}]}).batch([
-			'Pokemon/宝可梦/pokemon/6',
-			'iKun/iKun/ikun/6',
+		ml('h1')(['Clock face gallery','自选表盘'])
+		+j2h({'<>':'div','[]':split,html:[{'<>':'h2',html:[ml('span'),x=>ml('button',{onclick:`navigator.clipboard.writeText("https://gitee.com/xdial/xdial_cf_gallery/releases/download/${ver}/${x[2]}.bin");alert(selang("Copied to clipboard/已复制"))`})(['copy URL','复制链接'])]},{'<>':'div',html:x=>[...range(parseInt(x[3]))].map(i=>`<img src="assets/${x[2]}/${i}.png" />`).join('')}]}).batch([
+			'Pokemon/宝可梦/pokemon/8',
+			'iKun/iKun/ikun/7',
 		])
 	).dom();
 </script></html>
