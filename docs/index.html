@@ -31,12 +31,12 @@
 	multi_lang();
 	range=x=>Array(x).keys();
 	(
-		ml('h1')(['Clock face gallery','自选表盘'])
-		+j2h({'<>':'div','[]':split,html:[{'<>':'h2',html:[ml('span'),{'<>':'div',html:x=>`<a href='#0' onclick='cpy_ln("${x[2]}")'>🔗</a><a data-name='${x[2]}' onclick='return confirm(selang("New clock face will overwrite the current one, continue?/新表盘将覆盖当前的自选表盘, 是否继续?"))' target='_blank'>⬇️</a>`}]},{'<>':'div',html:x=>[...range(parseInt(x[3]))].map(i=>`<img src="assets/${x[2]}/${i}.png" loading="lazy" />`).join('')}]}).batch([
-			'Pokémon/宝可梦/pokemon/8',
+		ml('h1')(['Clock face gallery','表盘广场'])
+		+j2h({'<>':'div','[]':split,html:[{'<>':'h2',html:[ml('span'),{'<>':'div',html:x=>`<a href='#0' onclick='cpy_ln("${x[2]}")'>🔗</a><a data-name='${x[2]}' onclick='return confirm(selang("New clock face will overwrite the current one, continue?/新表盘将覆盖当前的可选表盘, 是否继续?"))' target='_blank'>⬇️</a>`}]},{'<>':'div',html:x=>[...range(parseInt(x[3]))].map(i=>`<img src="assets/${x[2]}/${i}.png" loading="lazy" />`).join('')}]}).batch([
 			'iKun/iKun/ikun/7',
+			'Puppies/小狗/puppies/5',
 			'Paris Olympics/巴黎奥运/paris_olympics/18',
-			'Dogs/狗子/dogs/5',
+			'Pokémon/宝可梦/pokemon/8',
 			'SpongeBob/海绵宝宝/spongebob/4'
 		])
 	).dom();
