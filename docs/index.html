@@ -31,7 +31,7 @@
 	multi_lang();
 	range=x=>Array(x).keys();
 	(
-		ml('h1')(['Clock face gallery','表盘广场'])
+		ml('h1')(['Clock Face Gallery','表盘广场'])
 		+j2h({'<>':'div','[]':split,html:[{'<>':'h2',html:[ml('span'),{'<>':'div',html:x=>`<a href='#0' onclick='cpy_ln("${x[2]}")'>🔗</a><a data-name='${x[2]}' onclick='return confirm(selang("New clock face will overwrite the current one, continue?/新表盘将覆盖当前的可选表盘, 是否继续?"))' target='_blank'>⬇️</a>`}]},{'<>':'div',html:x=>[...range(parseInt(x[3]))].map(i=>`<img src="assets/${x[2]}/${i}.png" loading="lazy" />`).join('')}]}).batch([
 			'iKun/iKun/ikun/7',
 			'Puppies/小狗/puppies/5',

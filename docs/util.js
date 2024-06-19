@@ -9,7 +9,8 @@ is_str=s=>typeof(s)=='string';
 ver_cmp=(x,y)=>zip(...[x,y].map(o=>o.split('.').map(x=>parseInt(x)))).reduce((o,[a,b])=>o||a-b,0);
 partial=(f,...a)=>(...b)=>f(...a,...b);
 _split=s=>x=>x.split(s);split=_split('/');
-sel_lang=(i,e)=>qa('[data-en]',e).forEach(x=>x.attr(x.hasAttribute('placeholder')?'placeholder':'innerHTML',x.dataset[i]));
+dash2Camel=i=>{var o=i.split('-');return o[0]+o.slice(1).map(x=>x[0].toUpperCase()+x.slice(1)).join('');}
+sel_lang=(i,e)=>qa('[data-en]',e).forEach(x=>x.attr(x.hasAttribute('placeholder')?'placeholder':'innerHTML',x.dataset[dash2Camel(i)]));
 selang=x=>split(x)[q("#_ml_sel").selectedIndex];
 attr=(o,a,v)=>{if(typeof(a)=='object')return Object.assign(o,a);if(v==undefined)return o[a];o[a]=v;return o;};
 (function(){
@@ -42,14 +43,14 @@ attr=(o,a,v)=>{if(typeof(a)=='object')return Object.assign(o,a);if(v==undefined)
 		return fn;
 	};
 	_id=o=>o.id;_txt=o=>o.text;_val=o=>o;_i=(o,i)=>i;_0=o=>o[0];_1=o=>o[1];_2=o=>o[2];_3=o=>o[3];
-	ml=(tag,opt)=>j2h(({'<>':tag,'data-en':_0,'data-zh':x=>(x[1]??x[0])}).merge(opt));
+	ml=(tag,opt)=>j2h(({'<>':tag,'data-en':_0,'data-zh-cn':x=>(x[1]??x[0])}).merge(opt));
 }());
 multi_lang=()=>{
-	j2h({'<>':'div',style:'text-align:right',html:['🌐',{'<>':'select',id:'_ml_sel',oninput:'sel_lang(this.value)',html:j2h({'<>':'option',value:_0,html:_1}).batch}]})([['en','English'],['zh','中文']]).dom();
+	j2h({'<>':'div',style:'text-align:right',html:['🌐',{'<>':'select',id:'_ml_sel',oninput:'sel_lang(this.value)',html:j2h({'<>':'option',value:_0,html:_1}).batch}]})([['en','English'],['zh-cn','中文']]).dom();
 	addEventListener("load", e=> {
 		var query = new URLSearchParams(location.search);
 		var s=q('#_ml_sel');
-		s.value=query.get('lang')??'zh';
+		s.value=query.get('lang')??'zh-cn';
 		s.oninput();
 	});
 };
