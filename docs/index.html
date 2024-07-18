@@ -16,7 +16,7 @@
 		}
 	}
 </style><body>
-	<div style="float:left;margin:0;">📦<select oninput="update_asset_ln()" id="server"><option value="github" data-fmt="https://github.com/r-cute/xdial_cf_gallery/releases/download/${ver}/${name}.bin">github</option><option value="gitee" data-fmt="https://gitee.com/r-cute/xdial_cf_gallery/releases/download/${ver}/${name}.bin">gitee</option></select></div>
+	<div style="float:left;margin:0;">📦<select oninput="update_asset_ln()" id="server"><option value="github" data-fmt="https://github.com/r-cute/xdial-cf-gallery/releases/download/${ver}/${name}.bin">github</option><option value="gitee" data-fmt="https://gitee.com/r-cute/xdial-cf-gallery/releases/download/${ver}/${name}.bin">gitee</option></select></div>
 </body><script>
 	str_fmt=(template,args)=>Object.entries(args).reduce((result, [arg, val]) => result?.replace(`$\{${arg}}`, `${val}`),template);
 	qry=new URLSearchParams(location.search);
