@@ -1,6 +1,16 @@
-- name: Repository Dispatch
-  uses: peter-evans/repository-dispatch@v3
-  with:
-  token: ${{ secrets.PAT }}
-  repository: r-cute/xdial
-  event-type: sub-page-update
+name: Repository Dispatch
+on:
+  push:
+    branches: [ master ]
+jobs:
+  dispatch_job:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Repository Dispatch
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.PAT }}
+          repository: r-cute/xdial
+          event-type: sub-page-update
